@@ -1,0 +1,161 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: hsl(30, 38%, 92%); /* Cream */
+    /*
+        PRIMJETI!! VAZNO!!
+        Sa donje 3 linije, mi smo CENTRIRALI div-container!!
+    */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/*
+    Dalje ideš u div-container ALI znaš da se isti nalazi centriran u body-u!!
+    Tako da, sve što radiš u div-container-u, radiš i u body-u!!
+    U container ćeš redati elemente duž vertikalne ose!!
+    Tome ti služe flexbox i flex-direction: column;
+*/
+.container {
+    background-color: hsl(0, 0%, 100%); /* White */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Increased max-width for larger screens */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Add shadow */
+    overflow: hidden; /* to contain rounded corners of images */
+}
+
+.product-image {
+    /*
+        Slika će se resizovati u odnosu na veličinu div-container-a
+        i zauzimaće 100% visine i širine div-container-a.
+        ZATO IMAŠ flex: 1; i display: flex;!!
+        Zbog resizovanja slike, slika će se možda iskriviti.
+        Da bi se to izbeglo, koristićemo object-fit: cover;
+    */
+    flex: 1;    
+    display: flex; /* For centering image */
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%; /* Make image fill its container */
+    height: auto;
+    object-fit: cover; /* Ensure image covers the area, cropping if needed */
+    border-top-left-radius: 10px; /* Rounded corners for top */
+    border-top-right-radius: 10px;
+}
+
+.product-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space evenly */
+    flex: 1;
+}
+
+.category {
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: hsl(228, 12%, 48%); /* Grey */
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.name {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: hsl(212, 21%, 14%); /* Black */
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.description {
+    font-size: 14px;
+    color: hsl(228, 12%, 48%); /* Grey */
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.current-price {
+    font-family: 'Fraunces', serif;
+    color: hsl(158, 36%, 37%); /* Green 500 */
+    font-size: 2rem;
+    margin-right: 20px;
+}
+
+.original-price {
+    font-size: 14px;
+    color: hsl(228, 12%, 48%); /* Grey */
+    text-decoration: line-through;
+}
+
+.add-to-cart {
+    background-color: hsl(158, 36%, 37%); /* Green 500 */
+    color: hsl(0, 0%, 100%); /* White */
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.add-to-cart img {
+    margin-right: 10px;
+}
+
+.add-to-cart:hover {
+    background-color: hsl(158, 42%, 18%); /* Green 700 */
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    color: hsl(228, 12%, 48%);
+    margin-top: 20px;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+}
+
+.attribution a:hover {
+    text-decoration: underline;
+}
+
+/* Media query for mobile */
+@media (max-width: 375px) {
+    .container {
+        flex-direction: column;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .product-image img {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    .product-info{
+        padding: 1.5rem;
+    }
+}
