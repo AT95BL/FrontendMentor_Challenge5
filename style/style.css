@@ -29,19 +29,27 @@ body {
     overflow: hidden; /* to contain rounded corners of images */
 }
 
+.product-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.5 / 1; /* širina : visina */
+    object-fit: cover;
+}
+
+/*
 .product-image {
-    /*
+    
         Slika će se resizovati u odnosu na veličinu div-container-a
         i zauzimaće 100% visine i širine div-container-a.
         ZATO IMAŠ flex: 1; i display: flex;!!
         Zbog resizovanja slike, slika će se možda iskriviti.
-        Da bi se to izbeglo, koristićemo object-fit: cover;
-    */
+        Da bi se to izbeglo, koristićemo object-fit: cover;  
     flex: 1;    
-    display: flex; /* For centering image */
+    display: flex; 
     align-items: center;
     justify-content: center;
 }
+*/
 
 .product-image img {
     width: 100%; /* Make image fill its container */
